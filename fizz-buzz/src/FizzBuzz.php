@@ -27,10 +27,10 @@ class FizzBuzz
     {
         foreach ($numbersList as $index => $value) {
             $position = $this->getPositionForIndex($index);
-            $numbersList[$index] = $position;
+            $numbersList = $this->setNumericalValueForPosition($numbersList, $position, $index);
 
             if ($this->isMultipleOfThree($position)) {
-                $numbersList[$index] = 'Fizz';
+                $numbersList = $this->setFizzValue($numbersList, $index);
             }
         }
 
@@ -45,6 +45,24 @@ class FizzBuzz
     protected function isMultipleOfThree($position)
     {
         return $position % 3 == 0;
+    }
+
+    protected function setNumericalValueForPosition($numbersList, $position, $index)
+    {
+        $numbersList[$index] = $position;
+
+        return $numbersList;
+    }
+
+    /**
+     * @param $numbersList
+     * @param $index
+     * @return mixed
+     */
+    protected function setFizzValue($numbersList, $index)
+    {
+        $numbersList[$index] = 'Fizz';
+        return $numbersList;
     }
 
 }
