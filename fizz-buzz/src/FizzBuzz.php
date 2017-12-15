@@ -10,8 +10,24 @@ class FizzBuzz
 
     public function getNumbersList()
     {
+        $numbersList = $this->initializeNumbersList();
+        $numbersList = $this->setNumbersListWithNumericValues($numbersList);
+
+        return $numbersList;
+    }
+
+    protected function initializeNumbersList()
+    {
         $numbersList = array_fill(self::INITIAL_INDEX, self::DEFAULT_SIZE, self::DEFAULT_VALUE);
-        $numbersList[0] = 1;
+
+        return $numbersList;
+    }
+
+    protected function setNumbersListWithNumericValues($numbersList)
+    {
+        foreach ($numbersList as $index => $value) {
+            $numbersList[$index] = $index + 1;
+        }
 
         return $numbersList;
     }

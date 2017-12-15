@@ -40,4 +40,26 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, $valueForFirstPosition);
     }
+
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_two_for_second_position()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+
+        $valueForSecondPosition = $numbersList[1];
+
+        $this->assertEquals(2, $valueForSecondPosition);
+    }
+
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_four_for_fourth_position()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+
+        $valueForFourthPosition = $numbersList[3];
+
+        $this->assertEquals(4, $valueForFourthPosition );
+    }
 }
