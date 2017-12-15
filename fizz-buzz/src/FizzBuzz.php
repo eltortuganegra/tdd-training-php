@@ -6,7 +6,7 @@ class FizzBuzz
 {
     public function getNumbersList()
     {
-        $numberList = [];
+        $numberList = array_fill(0, 100, null);
 
         return $numberList;
     }
