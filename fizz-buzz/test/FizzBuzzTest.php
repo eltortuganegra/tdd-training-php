@@ -12,9 +12,9 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     public function it_should_return_the_number_list_like_an_array()
     {
         $fizzBuzz = new FizzBuzz();
-        $numberList = $fizzBuzz->getNumbersList();
+        $numbersList = $fizzBuzz->getNumbersList();
 
-        $isArray = is_array($numberList);
+        $isArray = is_array($numbersList);
 
         $this->assertTrue($isArray);
     }
@@ -23,9 +23,9 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     public function it_should_return_number_list_like_an_array_with_one_hundred_elements()
     {
         $fizzBuzz = new FizzBuzz();
-        $numberList = $fizzBuzz->getNumbersList();
+        $numbersList = $fizzBuzz->getNumbersList();
 
-        $totalElements = count($numberList);
+        $totalElements = count($numbersList);
 
         $this->assertEquals(self::SIZE_NUMBERS_LIST, $totalElements);
     }
