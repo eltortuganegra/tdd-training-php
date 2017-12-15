@@ -32,6 +32,10 @@ class FizzBuzz
             if ($this->isMultipleOfThree($position)) {
                 $numbersList = $this->setFizzValue($numbersList, $index);
             }
+            if ($this->isMultipleOfFive($position)) {
+                $numbersList = $this->setBuzzValue($numbersList, $index);
+            }
+
         }
 
         return $numbersList;
@@ -54,14 +58,22 @@ class FizzBuzz
         return $numbersList;
     }
 
-    /**
-     * @param $numbersList
-     * @param $index
-     * @return mixed
-     */
     protected function setFizzValue($numbersList, $index)
     {
         $numbersList[$index] = 'Fizz';
+
+        return $numbersList;
+    }
+
+    protected function isMultipleOfFive($position)
+    {
+        return $position % 5 == 0;
+    }
+
+    protected function setBuzzValue($numbersList, $index)
+    {
+        $numbersList[$index] = 'Buzz';
+
         return $numbersList;
     }
 
