@@ -6,6 +6,8 @@ use FizzBuzz\FizzBuzz;
 
 class FizzBuzzTest extends \PHPUnit_Framework_TestCase
 {
+    const SIZE_NUMBERS_LIST = 100;
+
     /** @test */
     public function it_should_return_the_number_list_like_an_array()
     {
@@ -25,6 +27,6 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
 
         $totalElements = count($numberList);
 
-        $this->assertEquals(100, $totalElements);
+        $this->assertEquals(self::SIZE_NUMBERS_LIST, $totalElements);
     }
 }
