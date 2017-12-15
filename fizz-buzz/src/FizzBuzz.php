@@ -11,7 +11,7 @@ class FizzBuzz
     public function getNumbersList()
     {
         $numbersList = $this->initializeNumbersList();
-        $numbersList = $this->setNumbersListWithNumericValues($numbersList);
+        $numbersList = $this->setNumericalValuesToPositionsInTheNumbersList($numbersList);
 
         return $numbersList;
     }
@@ -23,12 +23,18 @@ class FizzBuzz
         return $numbersList;
     }
 
-    protected function setNumbersListWithNumericValues($numbersList)
+    protected function setNumericalValuesToPositionsInTheNumbersList($numbersList)
     {
         foreach ($numbersList as $index => $value) {
-            $numbersList[$index] = $index + 1;
+            $positionList = $this->getPositionForIndex($index);
+            $numbersList[$index] = $positionList;
         }
 
         return $numbersList;
+    }
+
+    protected function getPositionForIndex($index)
+    {
+        return $index + 1;
     }
 }
