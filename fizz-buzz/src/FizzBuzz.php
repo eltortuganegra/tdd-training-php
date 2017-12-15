@@ -11,8 +11,7 @@ class FizzBuzz
     public function getNumbersList()
     {
         $numbersList = $this->initializeNumbersList();
-        $numbersList = $this->setNumericalValuesToPositionsInTheNumbersList($numbersList);
-        $numbersList = $this->setFizzWhenPositionIsMultipleOfThree($numbersList);
+        $numbersList = $this->setValuesToPositions($numbersList);
 
         return $numbersList;
     }
@@ -24,11 +23,15 @@ class FizzBuzz
         return $numbersList;
     }
 
-    protected function setNumericalValuesToPositionsInTheNumbersList($numbersList)
+    protected function setValuesToPositions($numbersList)
     {
         foreach ($numbersList as $index => $value) {
-            $positionList = $this->getPositionForIndex($index);
-            $numbersList[$index] = $positionList;
+            $position = $this->getPositionForIndex($index);
+            $numbersList[$index] = $position;
+
+            if ($this->isMultipleOfThree($position)) {
+                $numbersList[$index] = 'Fizz';
+            }
         }
 
         return $numbersList;
@@ -39,14 +42,9 @@ class FizzBuzz
         return $index + 1;
     }
 
-    protected function setFizzWhenPositionIsMultipleOfThree($numbersList)
+    protected function isMultipleOfThree($position)
     {
-        foreach ($numbersList as $index => $value) {
-            $position = $this->getPositionForIndex($index);
-            if ($position % 3 == 0) {
-                $numbersList[$index] = 'Fizz';
-            }
-        }
-        return $numbersList;
+        return $position % 3 == 0;
     }
+
 }
