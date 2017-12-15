@@ -29,4 +29,15 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(self::SIZE_NUMBERS_LIST, $totalElements);
     }
+
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_one_for_first_position()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+
+        $valueForFirstPosition = $numbersList[0];
+
+        $this->assertEquals(1, $valueForFirstPosition);
+    }
 }

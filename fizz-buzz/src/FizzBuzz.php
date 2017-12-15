@@ -10,8 +10,9 @@ class FizzBuzz
 
     public function getNumbersList()
     {
-        $numberList = array_fill(self::INITIAL_INDEX, self::DEFAULT_SIZE, self::DEFAULT_VALUE);
+        $numbersList = array_fill(self::INITIAL_INDEX, self::DEFAULT_SIZE, self::DEFAULT_VALUE);
+        $numbersList[0] = 1;
 
-        return $numberList;
+        return $numbersList;
     }
 }
