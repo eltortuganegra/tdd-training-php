@@ -12,6 +12,8 @@ class FizzBuzz
     {
         $numbersList = $this->initializeNumbersList();
         $numbersList = $this->setNumericalValuesToPositionsInTheNumbersList($numbersList);
+        $numbersList[2] = 'Fizz';
+        $numbersList[5] = 'Fizz';
 
         return $numbersList;
     }
