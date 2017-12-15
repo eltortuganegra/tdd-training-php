@@ -86,4 +86,18 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('Fizz', $valueForSixthPosition );
     }
+
+
+
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_Fizz_for_positions_multiple_of_three()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+        $sixPosition = 8;
+
+        $valueForSixthPosition = $numbersList[$sixPosition];
+
+        $this->assertEquals('Fizz', $valueForSixthPosition );
+    }
 }
