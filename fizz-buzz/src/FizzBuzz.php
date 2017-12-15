@@ -4,12 +4,10 @@ namespace FizzBuzz;
 
 class FizzBuzz
 {
-
-    /**
-     * @return bool
-     */
-    public function changeMe()
+    public function getNumbersList()
     {
-        return true;
+        $numberList = [];
+
+        return $numberList;
     }
 }
