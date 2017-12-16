@@ -136,7 +136,7 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_should_return_number_list_with_a_value_of_Fizz_for_positions_that_contains_the_number_five_in_the_position()
+    public function it_should_return_number_list_with_a_value_of_Buzz_for_positions_that_contains_the_number_five_in_the_position()
     {
         $fizzBuzz = new FizzBuzz();
         $numbersList = $fizzBuzz->getNumbersList();
