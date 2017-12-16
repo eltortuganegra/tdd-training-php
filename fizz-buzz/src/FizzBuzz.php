@@ -33,7 +33,7 @@ class FizzBuzz
             $numbersList = $this->setNumericalValueForPosition($numbersList, $position, $index);
 
             $stringPosition = (string)$position;
-            if (strpos($stringPosition, '3') !== false && strpos($stringPosition, '5') !== false) {
+            if ($this->hasPositionAThreeAndFiveNumber($stringPosition)) {
                 $numbersList = $this->setFizzBuzzValue($numbersList, $index);
 
                 continue;
@@ -127,6 +127,15 @@ class FizzBuzz
     protected function hasPositionAFiveNumber($stringPosition)
     {
         return strpos($stringPosition, '5') !== false;
+    }
+
+    /**
+     * @param $stringPosition
+     * @return bool
+     */
+    protected function hasPositionAThreeAndFiveNumber($stringPosition)
+    {
+        return strpos($stringPosition, '3') !== false && strpos($stringPosition, '5') !== false;
     }
 
 }
