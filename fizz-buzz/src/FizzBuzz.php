@@ -7,6 +7,9 @@ class FizzBuzz
     const INITIAL_INDEX = 0;
     const DEFAULT_SIZE = 100;
     const DEFAULT_VALUE = null;
+    const FIZZ_VALUE = 'Fizz';
+    const BUZZ_VALUE = 'Buzz';
+    const FIZZBUZZ_VALUE = 'FizzBuzz';
 
     public function getNumbersList()
     {
@@ -71,7 +74,7 @@ class FizzBuzz
 
     protected function setFizzValue($numbersList, $index)
     {
-        $numbersList[$index] = 'Fizz';
+        $numbersList[$index] = self::FIZZ_VALUE;
 
         return $numbersList;
     }
@@ -83,14 +86,14 @@ class FizzBuzz
 
     protected function setBuzzValue($numbersList, $index)
     {
-        $numbersList[$index] = 'Buzz';
+        $numbersList[$index] = self::BUZZ_VALUE;
 
         return $numbersList;
     }
 
     protected function setFizzBuzzValue($numbersList, $index)
     {
-        $numbersList[$index] = 'FizzBuzz';
+        $numbersList[$index] = self::FIZZBUZZ_VALUE;
 
         return $numbersList;
     }
