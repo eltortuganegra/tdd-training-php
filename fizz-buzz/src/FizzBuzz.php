@@ -47,8 +47,6 @@ class FizzBuzz
             if ($this->hasPositionAFiveNumber($stringPosition)) {
                 $numbersList = $this->setBuzzValue($numbersList, $index);
             }
-
-
         }
 
         return $numbersList;
