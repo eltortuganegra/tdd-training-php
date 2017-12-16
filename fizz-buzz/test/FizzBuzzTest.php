@@ -102,7 +102,7 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_should_return_number_list_with_a_value_of_FizzBuzz_for_fifteenth_position()
+    public function it_should_return_number_list_with_a_value_of_FizzBuzz_for_position_multiple_of_three_or_five()
     {
         $fizzBuzz = new FizzBuzz();
         $numbersList = $fizzBuzz->getNumbersList();
@@ -110,18 +110,16 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $fifteenthPositionIndex = 14;
         $valueForFifteenthPosition = $numbersList[$fifteenthPositionIndex];
         $this->assertEquals('FizzBuzz', $valueForFifteenthPosition);
-    }
-
-    /** @test */
-    public function it_should_return_number_list_with_a_value_of_FizzBuzz_for_thirtieth_position()
-    {
-        $fizzBuzz = new FizzBuzz();
-        $numbersList = $fizzBuzz->getNumbersList();
 
         $thirtiethPositionIndex = 29;
         $valueForThirtiethPosition = $numbersList[$thirtiethPositionIndex];
         $this->assertEquals('FizzBuzz', $valueForThirtiethPosition);
+
+        $fortyFifthPositionIndex = 44;
+        $valueForFortyFifthPosition = $numbersList[$fortyFifthPositionIndex];
+        $this->assertEquals('FizzBuzz', $valueForFortyFifthPosition);
     }
+
 
 //    /** @test */
 //    public function it_should_return_number_list_with_a_value_of_Fizz_for_positions_that_contains_the_number_three_as_position_31()

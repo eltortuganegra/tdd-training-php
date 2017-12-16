@@ -12,8 +12,6 @@ class FizzBuzz
     {
         $numbersList = $this->initializeNumbersList();
         $numbersList = $this->setValuesToPositions($numbersList);
-        $numbersList[14] = 'FizzBuzz';
-        $numbersList[29] = 'FizzBuzz';
 
         return $numbersList;
     }
@@ -36,6 +34,9 @@ class FizzBuzz
             }
             if ($this->isMultipleOfFive($position)) {
                 $numbersList = $this->setBuzzValue($numbersList, $index);
+            }
+            if (($position % 3 == 0) && ($position % 5 == 0)) {
+                $numbersList = $this->setFizzBuzzValue($numbersList, $index);
             }
         }
 
@@ -74,6 +75,13 @@ class FizzBuzz
     protected function setBuzzValue($numbersList, $index)
     {
         $numbersList[$index] = 'Buzz';
+
+        return $numbersList;
+    }
+
+    protected function setFizzBuzzValue($numbersList, $index)
+    {
+        $numbersList[$index] = 'FizzBuzz';
 
         return $numbersList;
     }
