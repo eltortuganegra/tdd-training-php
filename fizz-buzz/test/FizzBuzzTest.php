@@ -112,6 +112,17 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('FizzBuzz', $valueForFifteenthPosition);
     }
 
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_FizzBuzz_for_thirtieth_position()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+
+        $thirtiethPositionIndex = 29;
+        $valueForThirtiethPosition = $numbersList[$thirtiethPositionIndex];
+        $this->assertEquals('FizzBuzz', $valueForThirtiethPosition);
+    }
+
 //    /** @test */
 //    public function it_should_return_number_list_with_a_value_of_Fizz_for_positions_that_contains_the_number_three_as_position_31()
 //    {
