@@ -136,13 +136,13 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_should_return_number_list_with_a_value_of_Buzz_for_positions_that_contains_the_number_five_in_the_position()
+    public function it_should_return_number_list_with_a_value_of_Buzz_for_positions_that_contains_the_number_five_in_the_position_but_not_three()
     {
         $fizzBuzz = new FizzBuzz();
         $numbersList = $fizzBuzz->getNumbersList();
 
-        $thirtyFifthPositionIndex = 34;
-        $valueForThirtyFifthPosition = $numbersList[$thirtyFifthPositionIndex];
+        $sixtyFifthPositionIndex = 64;
+        $valueForThirtyFifthPosition = $numbersList[$sixtyFifthPositionIndex];
         $this->assertEquals('Buzz', $valueForThirtyFifthPosition);
 
         $fortyFifthPositionIndex = 44;
@@ -152,6 +152,18 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $seventyFifthPositionIndex = 74;
         $valueForSeventyFifthPosition = $numbersList[$seventyFifthPositionIndex];
         $this->assertEquals('Buzz', $valueForSeventyFifthPosition);
+    }
+
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_Buzz_for_positions_that_contains_the_numbers_three_and_five_in_the_position()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+
+        $thirtyFifthPositionIndex = 34;
+        $valueForThirtyFifthPosition = $numbersList[$thirtyFifthPositionIndex];
+
+        $this->assertEquals('FizzBuzz', $valueForThirtyFifthPosition);
     }
 
 }
