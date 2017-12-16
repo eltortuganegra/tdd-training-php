@@ -40,13 +40,12 @@ class FizzBuzz
             }
 
             $stringPosition = (string)$position;
-            if (strpos($stringPosition, '3') !== false) {
-                $numbersList[$index] = 'Fizz';
+            if ($this->hasPositionAThreeNumber($stringPosition)) {
+                $numbersList = $this->setFizzValue($numbersList, $index);
             }
 
-            $stringPosition = (string)$position;
-            if (strpos($stringPosition, '5') !== false) {
-                $numbersList[$index] = 'Buzz';
+            if ($this->hasPositionAFiveNumber($stringPosition)) {
+                $numbersList = $this->setBuzzValue($numbersList, $index);
             }
 
 
@@ -105,6 +104,24 @@ class FizzBuzz
     protected function isMultipleOfThreeAndFive($position)
     {
         return ($position % 3 == 0) && ($position % 5 == 0);
+    }
+
+    /**
+     * @param $stringPosition
+     * @return bool
+     */
+    protected function hasPositionAThreeNumber($stringPosition)
+    {
+        return strpos($stringPosition, '3') !== false;
+    }
+
+    /**
+     * @param $stringPosition
+     * @return bool
+     */
+    protected function hasPositionAFiveNumber($stringPosition)
+    {
+        return strpos($stringPosition, '5') !== false;
     }
 
 }
