@@ -144,6 +144,14 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $thirtyFifthPositionIndex = 34;
         $valueForThirtyFifthPosition = $numbersList[$thirtyFifthPositionIndex];
         $this->assertEquals('Buzz', $valueForThirtyFifthPosition);
+
+        $fortyFifthPositionIndex = 44;
+        $valueForFortyFifthPosition = $numbersList[$fortyFifthPositionIndex];
+        $this->assertEquals('Buzz', $valueForFortyFifthPosition);
+
+        $seventyFifthPositionIndex = 74;
+        $valueForSeventyFifthPosition = $numbersList[$seventyFifthPositionIndex];
+        $this->assertEquals('Buzz', $valueForSeventyFifthPosition);
     }
 
 }
