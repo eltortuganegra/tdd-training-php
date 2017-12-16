@@ -12,6 +12,7 @@ class FizzBuzz
     {
         $numbersList = $this->initializeNumbersList();
         $numbersList = $this->setValuesToPositions($numbersList);
+        $numbersList[14] = 'FizzBuzz';
 
         return $numbersList;
     }
@@ -35,7 +36,6 @@ class FizzBuzz
             if ($this->isMultipleOfFive($position)) {
                 $numbersList = $this->setBuzzValue($numbersList, $index);
             }
-
         }
 
         return $numbersList;

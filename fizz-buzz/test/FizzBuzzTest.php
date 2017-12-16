@@ -101,5 +101,34 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Buzz', $valueForThirtyFifthPosition );
     }
 
+    /** @test */
+    public function it_should_return_number_list_with_a_value_of_FizzBuzz_for_fifteenth_position()
+    {
+        $fizzBuzz = new FizzBuzz();
+        $numbersList = $fizzBuzz->getNumbersList();
+
+        $fifteenthPositionIndex = 14;
+        $valueForFifteenthPosition = $numbersList[$fifteenthPositionIndex];
+        $this->assertEquals('FizzBuzz', $valueForFifteenthPosition);
+    }
+
+//    /** @test */
+//    public function it_should_return_number_list_with_a_value_of_Fizz_for_positions_that_contains_the_number_three_as_position_31()
+//    {
+//        $fizzBuzz = new FizzBuzz();
+//        $numbersList = $fizzBuzz->getNumbersList();
+//
+//        $thirtyFirstPositionIndex = 30;
+//        $valueForThirtyFirstPosition = $numbersList[$thirtyFirstPositionIndex];
+//        $this->assertEquals('Fizz', $valueForThirtyFirstPosition);
+//
+//        $thirtySecondPositionIndex = 31;
+//        $valueForThirtySecondPosition = $numbersList[$thirtySecondPositionIndex];
+//        $this->assertEquals('Fizz', $valueForThirtySecondPosition);
+//
+//        $eightyThirdPositionIndex = 82;
+//        $valueForEightyThirdPosition = $numbersList[$eightyThirdPositionIndex ];
+//        $this->assertEquals('Fizz', $valueForEightyThirdPosition);
+//    }
 
 }
