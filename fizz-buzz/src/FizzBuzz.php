@@ -32,23 +32,33 @@ class FizzBuzz
             $position = $this->getPositionForIndex($index);
             $numbersList = $this->setNumericalValueForPosition($numbersList, $position, $index);
 
-            if ($this->isMultipleOfThree($position)) {
+            $stringPosition = (string)$position;
+            if ($this->hasPositionAFiveNumber($stringPosition)) {
+                $numbersList = $this->setBuzzValue($numbersList, $index);
+
+                continue;
+            }
+
+            if ($this->hasPositionAThreeNumber($stringPosition)) {
                 $numbersList = $this->setFizzValue($numbersList, $index);
+
+                continue;
+            }
+
+            if ($this->isMultipleOfThreeAndFive($position)) {
+                $numbersList = $this->setFizzBuzzValue($numbersList, $index);
+
+                continue;
             }
             if ($this->isMultipleOfFive($position)) {
                 $numbersList = $this->setBuzzValue($numbersList, $index);
-            }
-            if ($this->isMultipleOfThreeAndFive($position)) {
-                $numbersList = $this->setFizzBuzzValue($numbersList, $index);
-            }
 
-            $stringPosition = (string)$position;
-            if ($this->hasPositionAThreeNumber($stringPosition)) {
+                continue;
+            }
+            if ($this->isMultipleOfThree($position)) {
                 $numbersList = $this->setFizzValue($numbersList, $index);
-            }
 
-            if ($this->hasPositionAFiveNumber($stringPosition)) {
-                $numbersList = $this->setBuzzValue($numbersList, $index);
+                continue;
             }
         }
 
