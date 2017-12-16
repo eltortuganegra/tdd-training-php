@@ -44,6 +44,12 @@ class FizzBuzz
                 $numbersList[$index] = 'Fizz';
             }
 
+            $stringPosition = (string)$position;
+            if (strpos($stringPosition, '5') !== false) {
+                $numbersList[$index] = 'Buzz';
+            }
+
+
         }
 
         return $numbersList;
