@@ -7,6 +7,6 @@ class PasswordValidator
 
     public function validate()
     {
-
+        return true;
     }
 }
