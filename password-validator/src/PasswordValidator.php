@@ -7,7 +7,8 @@ class PasswordValidator
     public function validate($password)
     {
         return $this->isMoreThanEightCharacters($password)
-            && $this->doesPasswordHaveAnUppercaseCharacter($password);
+            && $this->doesPasswordHaveAnUppercaseCharacter($password)
+            && $this->doesPasswordHaveALowercaseCharacter($password);
     }
 
     protected function isMoreThanEightCharacters($password)
@@ -18,5 +19,10 @@ class PasswordValidator
     protected function doesPasswordHaveAnUppercaseCharacter($password)
     {
         return preg_match('/[A-Z]/', $password) === 1;
+    }
+
+    protected function doesPasswordHaveALowercaseCharacter($password)
+    {
+        return preg_match('/[a-z]/', $password) === 1;
     }
 }
