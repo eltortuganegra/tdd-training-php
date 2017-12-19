@@ -7,10 +7,16 @@ class PasswordValidator
 
     public function validate($password)
     {
-        if (strlen($password) < 8) {
+        if ($this->isLessThanEightCharacters($password)) {
+
             return false;
         }
 
         return true;
+    }
+
+    protected function isLessThanEightCharacters($password)
+    {
+        return strlen($password) < 8;
     }
 }
