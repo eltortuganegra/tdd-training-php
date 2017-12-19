@@ -36,4 +36,15 @@ class PasswordValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid);
     }
 
+    /** @test */
+    public function it_should_has_a_capital_letter()
+    {
+        $passwordValidator = new PasswordValidator();
+        $wrongPassword = '12345678ab1_';
+
+        $isValid = $passwordValidator->validate($wrongPassword);
+
+        $this->assertFalse($isValid);
+    }
+
 }
