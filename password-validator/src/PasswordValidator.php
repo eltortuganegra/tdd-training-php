@@ -6,22 +6,17 @@ class PasswordValidator
 {
     public function validate($password)
     {
-        if ($this->isLessThanEightCharacters($password)
-            || $this->doesPasswordNotAnUppercaseCharacter($password)
-        ) {
-            return false;
-        }
-
-        return true;
+        return $this->isMoreThanEightCharacters($password)
+            && $this->doesPasswordHaveAnUppercaseCharacter($password);
     }
 
-    protected function isLessThanEightCharacters($password)
+    protected function isMoreThanEightCharacters($password)
     {
-        return strlen($password) <= 8;
+        return strlen($password) > 8;
     }
 
-    protected function doesPasswordNotAnUppercaseCharacter($password)
+    protected function doesPasswordHaveAnUppercaseCharacter($password)
     {
-        return preg_match('/[A-Z]/', $password) === 0;
+        return preg_match('/[A-Z]/', $password) === 1;
     }
 }
