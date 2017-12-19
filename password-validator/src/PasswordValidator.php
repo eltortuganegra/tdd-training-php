@@ -5,11 +5,8 @@ namespace PasswordValidator;
 class PasswordValidator
 {
 
-    /**
-     * @return bool
-     */
-    public function changeMe()
+    public function validate()
     {
-        return true;
+
     }
 }
