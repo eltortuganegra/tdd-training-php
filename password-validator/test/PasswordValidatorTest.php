@@ -58,4 +58,15 @@ class PasswordValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid);
     }
 
+    /** @test */
+    public function it_should_has_a_number()
+    {
+        $passwordValidator = new PasswordValidator();
+        $wrongPassword = 'abcdefgABa_';
+
+        $isValid = $passwordValidator->validate($wrongPassword);
+
+        $this->assertFalse($isValid);
+    }
+
 }
