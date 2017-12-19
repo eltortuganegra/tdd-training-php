@@ -29,9 +29,9 @@ class PasswordValidatorTest extends \PHPUnit_Framework_TestCase
     public function it_should_has_a_size_more_than_eight_characters()
     {
         $passwordValidator = new PasswordValidator();
-        $validPassword = '12345678';
+        $wrongPassword = '12345678';
 
-        $isValid = $passwordValidator->validate($validPassword);
+        $isValid = $passwordValidator->validate($wrongPassword);
 
         $this->assertFalse($isValid);
     }
