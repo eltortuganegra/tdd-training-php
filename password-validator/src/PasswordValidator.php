@@ -17,6 +17,6 @@ class PasswordValidator
 
     protected function isLessThanEightCharacters($password)
     {
-        return strlen($password) < 8;
+        return strlen($password) <= 8;
     }
 }
