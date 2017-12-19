@@ -6,13 +6,9 @@ class PasswordValidator
 {
     public function validate($password)
     {
-        if ($this->isLessThanEightCharacters($password)) {
-
-            return false;
-        }
-
-        if ($this->doesPasswordNotAnUppercaseCharacter($password)) {
-
+        if ($this->isLessThanEightCharacters($password)
+            || $this->doesPasswordNotAnUppercaseCharacter($password)
+        ) {
             return false;
         }
 
