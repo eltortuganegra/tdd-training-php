@@ -9,7 +9,8 @@ class PasswordValidator
         return $this->isMoreThanEightCharacters($password)
             && $this->doesPasswordHaveAnUppercaseCharacter($password)
             && $this->doesPasswordHaveALowercaseCharacter($password)
-            && $this->doesPasswordHaveANumber($password);
+            && $this->doesPasswordHaveANumber($password)
+            && $this->doesPasswordHaveAnUnderscore($password);
     }
 
     protected function isMoreThanEightCharacters($password)
@@ -30,5 +31,10 @@ class PasswordValidator
     protected function doesPasswordHaveANumber($password)
     {
         return preg_match('/[1-9]/', $password) === 1;
+    }
+
+    protected function doesPasswordHaveAnUnderscore($password)
+    {
+        return preg_match('/[_]/', $password) === 1;
     }
 }

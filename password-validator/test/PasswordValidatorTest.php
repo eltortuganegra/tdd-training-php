@@ -69,4 +69,15 @@ class PasswordValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid);
     }
 
+    /** @test */
+    public function it_should_has_an_underscore()
+    {
+        $passwordValidator = new PasswordValidator();
+        $wrongPassword = '12345678Ab1';
+
+        $isValid = $passwordValidator->validate($wrongPassword);
+
+        $this->assertFalse($isValid);
+    }
+
 }
