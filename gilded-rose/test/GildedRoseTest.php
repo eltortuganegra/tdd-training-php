@@ -56,4 +56,23 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isQualityValueDecremented);
     }
 
+
+    /**
+     * @test
+     */
+    public function should_decrement_the_quality_value_two_units_when_sell_has_passed()
+    {
+        $defaultSellinValue = 0;
+        $defaultQualityValue = 10;
+        $standardItem = new Item('standard', $defaultSellinValue, $defaultQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $decrementedValue = $defaultQualityValue - 2;
+        $isQualityValueDecremented = ($standardItem->quality == $decrementedValue);
+
+        $this->assertTrue($isQualityValueDecremented);
+    }
+
 }
