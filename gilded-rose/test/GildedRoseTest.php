@@ -161,4 +161,22 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isNotTheSellInIncremented);
     }
 
+    /**
+     * @test
+     */
+    public function should_increases_quality_for_backstage_item_when_it_is_sell_in_approaches()
+    {
+        $defaultSellinValue = 15;
+        $standardQualityValue = 10;
+        $standardItem = new Item('Backstage passes to a TAFKAL80ETC concert', $defaultSellinValue, $standardQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $incrementedQualityValue = $standardQualityValue + 1;
+        $isQualityIncremented = ($standardItem->quality == $incrementedQualityValue);
+
+        $this->assertTrue($isQualityIncremented);
+    }
+
 }
