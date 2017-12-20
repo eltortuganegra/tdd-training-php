@@ -6,7 +6,6 @@ use GildedRose\GildedRose;
 
 class GildedRoseTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
