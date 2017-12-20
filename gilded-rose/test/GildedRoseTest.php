@@ -110,4 +110,21 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isQualityIncremented);
     }
 
+    /**
+     * @test
+     */
+    public function should_increases_quality_up_to_a_maximum_of_fifty_units()
+    {
+        $defaultSellinValue = 10;
+        $maximumQualityValue = 50;
+        $standardItem = new Item('Aged Brie', $defaultSellinValue, $maximumQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $isNotTheQualityIncremented = ($standardItem->quality == $maximumQualityValue);
+
+        $this->assertTrue($isNotTheQualityIncremented);
+    }
+
 }
