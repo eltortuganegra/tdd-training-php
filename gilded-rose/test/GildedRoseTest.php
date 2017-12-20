@@ -127,4 +127,21 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isNotTheQualityIncremented);
     }
 
+    /**
+     * @test
+     */
+    public function should_not_increases_quality_for_Sulfuras_item()
+    {
+        $defaultSellinValue = 10;
+        $standardQualityValue = 10;
+        $standardItem = new Item('Sulfuras, Hand of Ragnaros', $defaultSellinValue, $standardQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $isNotTheQualityIncremented = ($standardItem->quality == $standardQualityValue);
+
+        $this->assertTrue($isNotTheQualityIncremented);
+    }
+
 }
