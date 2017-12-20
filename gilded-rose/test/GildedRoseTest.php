@@ -197,4 +197,22 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isQualityIncrementedTwoUnits);
     }
 
+    /**
+     * @test
+     */
+    public function should_increases_quality_three_units_for_backstage_item_when_it_is_sell_in_approaches_in_five_days_or_less()
+    {
+        $defaultSellinValue = 5;
+        $standardQualityValue = 10;
+        $standardItem = new Item('Backstage passes to a TAFKAL80ETC concert', $defaultSellinValue, $standardQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $incrementedQualityValueThreeUnits = $standardQualityValue + 3;
+        $isQualityIncrementedThreeUnits = ($standardItem->quality == $incrementedQualityValueThreeUnits);
+
+        $this->assertTrue($isQualityIncrementedThreeUnits);
+    }
+
 }
