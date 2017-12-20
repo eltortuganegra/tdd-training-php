@@ -92,4 +92,22 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isQualityZero);
     }
 
+    /**
+     * @test
+     */
+    public function should_increases_quality_of_aged_brie_item_the_older_it_gets()
+    {
+        $defaultSellinValue = 10;
+        $defaultQualityValue = 10;
+        $standardItem = new Item('Aged Brie', $defaultSellinValue, $defaultQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $increasedQualityValue = $defaultQualityValue + 1;
+        $isQualityIncremented = ($standardItem->quality == $increasedQualityValue);
+
+        $this->assertTrue($isQualityIncremented);
+    }
+
 }
