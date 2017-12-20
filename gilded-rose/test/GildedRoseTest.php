@@ -56,7 +56,6 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isQualityValueDecremented);
     }
 
-
     /**
      * @test
      */
@@ -73,6 +72,24 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $isQualityValueDecremented = ($standardItem->quality == $decrementedValue);
 
         $this->assertTrue($isQualityValueDecremented);
+    }
+
+    /**
+     * @test
+     */
+    public function should_not_decrement_quality_less_than_zero()
+    {
+        $defaultSellinValue = 10;
+        $defaultQualityValue = 0;
+        $standardItem = new Item('standard', $defaultSellinValue, $defaultQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $zeroQualityValue = 0;
+        $isQualityZero = ($standardItem->quality == $zeroQualityValue);
+
+        $this->assertTrue($isQualityZero);
     }
 
 }
