@@ -26,6 +26,8 @@ class GildedRose
                 $this->update_aged_brie_item($item);
             } else if ($this->isItemABackstage($item)) {
                 $this->update_backstage_item($item);
+            } else if ($this->isItemAConjured($item)) {
+                $this->update_conjured_item($item);
             } else {
                 $this->update_item($item);
             }
@@ -135,5 +137,27 @@ class GildedRose
         if ($this->isQualityLessThanMinimumQuality($item)) {
             $this->setToMinimumQuality($item);
         }
+    }
+
+    /**
+     * @param $item
+     */
+    protected function update_conjured_item($item)
+    {
+        $this->decrementSellIn($item);
+        $this->decrementQuality($item);
+        $this->decrementQuality($item);
+        if ($this->isQualityLessThanMinimumQuality($item)) {
+            $this->setToMinimumQuality($item);
+        }
+    }
+
+    /**
+     * @param $item
+     * @return bool
+     */
+    protected function isItemAConjured($item)
+    {
+        return $item->name == 'Conjured';
     }
 }

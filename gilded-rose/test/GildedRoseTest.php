@@ -233,4 +233,22 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isQualityEqualsToZero);
     }
 
+    /**
+     * @test
+     */
+    public function should_degrate_conjured_items_in_quality_twice_as_normal_items()
+    {
+        $defaultSellinValue = 10;
+        $standardQualityValue = 10;
+        $standardItem = new Item('Conjured', $defaultSellinValue, $standardQualityValue);
+        $items = array($standardItem);
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->update_quality();
+        $decreasedQualityValueInTwo = 8;
+        $isQualityEqualsToZero = ($standardItem->quality == $decreasedQualityValueInTwo);
+
+        $this->assertTrue($isQualityEqualsToZero);
+    }
+
 }
