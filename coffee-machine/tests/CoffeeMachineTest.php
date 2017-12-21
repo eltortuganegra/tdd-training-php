@@ -45,18 +45,18 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('H::', $command);
     }
 
-//    /** @test */
-//    public function should_serve_a_coffee_with_one_sugar() {
-//        // Arrange
-//        $coffeeMachine = new CoffeeMachine();
-//
-//        // Act
-//        $coffeeMachine->addSugar();
-//        $coffeeMachine->pressCoffeeButton();
-//        $command = $coffeeMachine->getCommand();
-//
-//        // Arrange
-//        $this->assertEquals('C:1:0', $command);
-//    }
+    /** @test */
+    public function should_serve_a_coffee_with_one_sugar() {
+        // Arrange
+        $coffeeMachine = new CoffeeMachine();
+
+        // Act
+        $coffeeMachine->addSugar();
+        $coffeeMachine->pressCoffeeButton();
+        $command = $coffeeMachine->getCommand();
+
+        // Arrange
+        $this->assertEquals('C:1:0', $command);
+    }
 
 }
