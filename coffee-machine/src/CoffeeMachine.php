@@ -4,26 +4,26 @@ namespace CoffeeMachine;
 
 class CoffeeMachine
 {
-    private $command = null;
+    private $drinkType = null;
 
     public function getCommand()
     {
-        return $this->command;
+        return $this->drinkType . '::';
     }
 
     public function pressCoffeeButton()
     {
-        $this->command = 'C::';
+        $this->drinkType = 'C';
     }
 
     public function pressTeaButton()
     {
-        $this->command = 'T::';
+        $this->drinkType = 'T';
     }
 
     public function pressChocolateButton()
     {
-        $this->command = 'H::';
+        $this->drinkType = 'H';
     }
 
 }
