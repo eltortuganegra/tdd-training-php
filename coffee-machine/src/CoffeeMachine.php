@@ -4,40 +4,36 @@ namespace CoffeeMachine;
 
 class CoffeeMachine
 {
-    private $drinkType = null;
+    private $drinkCode = null;
+    private $sugarCode = '';
+    private $stickCode = '';
     private $amountSugar = 0;
 
     public function getCommand()
     {
-        $stickCode = '';
-        $sugarCode = '';
-
-        if ($this->amountSugar > 0) {
-            $sugarCode = $this->amountSugar;
-            $stickCode = '0';
-        }
-
-        return $this->drinkType . ':' . $sugarCode . ':' . $stickCode;
+        return $this->drinkCode . ':' . $this->sugarCode . ':' . $this->stickCode;
     }
 
     public function pressCoffeeButton()
     {
-        $this->drinkType = 'C';
+        $this->drinkCode = 'C';
     }
 
     public function pressTeaButton()
     {
-        $this->drinkType = 'T';
+        $this->drinkCode = 'T';
     }
 
     public function pressChocolateButton()
     {
-        $this->drinkType = 'H';
+        $this->drinkCode = 'H';
     }
 
     public function addSugar()
     {
         $this->amountSugar++;
+        $this->sugarCode = $this->amountSugar;
+        $this->stickCode = '0';
     }
 
 }
