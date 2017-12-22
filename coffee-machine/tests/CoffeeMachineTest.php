@@ -7,46 +7,26 @@ use CoffeeMachine\CoffeeMachine;
 class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
 {
     /** @test */
-    public function should_serve_a_coffee_when_coffee_button_is_pressed() {
+    public function should_serve_a_drink_when_a_drink_button_is_pressed() {
         // Arrange
         $coffeeMachine = new CoffeeMachine();
 
         // Act
         $coffeeMachine->pressCoffeeButton();
-        $command = $coffeeMachine->getCommand();
-
-        // Arrange
-        $this->assertEquals('C::', $command);
-    }
-
-    /** @test */
-    public function should_serve_a_tea_when_tea_button_is_pressed() {
-        // Arrange
-        $coffeeMachine = new CoffeeMachine();
-
-        // Act
+        $commandForCoffee = $coffeeMachine->getCommand();
         $coffeeMachine->pressTeaButton();
-        $command = $coffeeMachine->getCommand();
-
-        // Arrange
-        $this->assertEquals('T::', $command);
-    }
-
-    /** @test */
-    public function should_serve_a_chocolate_when_chocolate_button_is_pressed() {
-        // Arrange
-        $coffeeMachine = new CoffeeMachine();
-
-        // Act
+        $commandForTea = $coffeeMachine->getCommand();
         $coffeeMachine->pressChocolateButton();
-        $command = $coffeeMachine->getCommand();
+        $commandForChocolate = $coffeeMachine->getCommand();
 
         // Arrange
-        $this->assertEquals('H::', $command);
+        $this->assertEquals('C::', $commandForCoffee);
+        $this->assertEquals('T::', $commandForTea);
+        $this->assertEquals('H::', $commandForChocolate);
     }
 
     /** @test */
-    public function should_serve_a_coffee_with_one_sugar() {
+    public function should_serve_a_drink_with_one_sugar_when_sugar_button_is_pressed() {
         // Arrange
         $coffeeMachine = new CoffeeMachine();
 
@@ -60,7 +40,7 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function should_serve_a_coffee_with_two_sugar() {
+    public function should_serve_a_drink_with_two_sugar_when_sugar_button_is_pressed_two_times() {
         // Arrange
         $coffeeMachine = new CoffeeMachine();
 
