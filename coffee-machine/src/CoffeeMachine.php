@@ -31,7 +31,7 @@ class CoffeeMachine
 
     public function addSugar()
     {
-        $this->amountSugar = 1;
+        $this->amountSugar++;
         $this->sugarCode = $this->amountSugar;
         $this->stickCode = '0';
     }
