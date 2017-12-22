@@ -36,7 +36,7 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $command = $coffeeMachine->getCommand();
 
         // Arrange
-        $this->assertEquals('C:1:0', $command);
+        $this->assertEquals('C:1:', $command);
     }
 
     /** @test */
@@ -51,7 +51,21 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $command = $coffeeMachine->getCommand();
 
         // Arrange
-        $this->assertEquals('C:2:0', $command);
+        $this->assertEquals('C:2:', $command);
     }
+
+//    /** @test */
+//    public function should_add_one_stick_when_order_contains_sugar() {
+//        // Arrange
+//        $coffeeMachine = new CoffeeMachine();
+//
+//        // Act
+//        $coffeeMachine->addSugar();
+//        $coffeeMachine->pressCoffeeButton();
+//        $command = $coffeeMachine->getCommand();
+//
+//        // Arrange
+//        $this->assertEquals('C:2:0', $command);
+//    }
 
 }

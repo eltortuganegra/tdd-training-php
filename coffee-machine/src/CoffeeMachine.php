@@ -33,7 +33,7 @@ class CoffeeMachine
     {
         $this->amountSugar++;
         $this->sugarCode = $this->amountSugar;
-        $this->stickCode = '0';
+//        $this->stickCode = '0';
     }
 
 }
