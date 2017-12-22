@@ -59,4 +59,6 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('C:1:0', $command);
     }
 
+
+
 }
