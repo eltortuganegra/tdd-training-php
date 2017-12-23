@@ -12,6 +12,8 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $coffeeMachine = new CoffeeMachine();
 
         // Act
+        $enoughAmountOfMoney = 100;
+        $coffeeMachine->insertMoney($enoughAmountOfMoney);
         $coffeeMachine->pressCoffeeButton();
         $commandForCoffee = $coffeeMachine->getCommand();
         $coffeeMachine->pressTeaButton();
@@ -31,6 +33,8 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $coffeeMachine = new CoffeeMachine();
 
         // Act
+        $enoughAmountOfMoney = 100;
+        $coffeeMachine->insertMoney($enoughAmountOfMoney);
         $coffeeMachine->addSugar();
         $coffeeMachine->pressCoffeeButton();
         $command = $coffeeMachine->getCommand();
@@ -45,6 +49,8 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $coffeeMachine = new CoffeeMachine();
 
         // Act
+        $enoughAmountOfMoney = 100;
+        $coffeeMachine->insertMoney($enoughAmountOfMoney);
         $coffeeMachine->addSugar();
         $coffeeMachine->addSugar();
         $coffeeMachine->pressCoffeeButton();
@@ -60,6 +66,8 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         $coffeeMachine = new CoffeeMachine();
 
         // Act
+        $enoughAmountOfMoney = 100;
+        $coffeeMachine->insertMoney($enoughAmountOfMoney);
         $coffeeMachine->addSugar();
         $coffeeMachine->pressCoffeeButton();
         $command = $coffeeMachine->getCommand();
@@ -67,5 +75,22 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
         // Arrange
         $this->assertEquals('C:1:0', $command);
     }
+
+    /** @test */
+    public function should_show_a_message_with_money_missing_if_the_amount_of_money_is_not_enough() {
+        // Arrange
+        $coffeeMachine = new CoffeeMachine();
+
+        // Act
+        $insufficientAmountOfMoney = 0;
+        $coffeeMachine->insertMoney($insufficientAmountOfMoney);
+        $coffeeMachine->pressCoffeeButton();
+        $command = $coffeeMachine->getCommand();
+
+        // Arrange
+        $this->assertEquals('M:Money missing: 0.6', $command);
+    }
+
+
 
 }
