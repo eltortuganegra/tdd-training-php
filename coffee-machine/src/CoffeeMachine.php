@@ -5,10 +5,10 @@ namespace CoffeeMachine;
 class CoffeeMachine
 {
     protected $amountMoney = 0;
-    protected $drinkCode = null;
     protected $sugarCode = '';
     protected $stickCode = '';
     protected $amountSugar = 0;
+    protected $drink = null;
 
     const COFFEE_PRIZE = 0.6;
     const COFFEE_TEA = 0.4;
@@ -20,22 +20,22 @@ class CoffeeMachine
             return $this->getMissingMoneyMessage();
         }
 
-        return $this->drinkCode . ':' . $this->sugarCode . ':' . $this->stickCode;
+        return $this->drink->getCode() . ':' . $this->sugarCode . ':' . $this->stickCode;
     }
 
     public function pressCoffeeButton()
     {
-        $this->drinkCode = 'C';
+        $this->drink = new CoffeeDrink();
     }
 
     public function pressTeaButton()
     {
-        $this->drinkCode = 'T';
+        $this->drink = new TeaDrink();
     }
 
     public function pressChocolateButton()
     {
-        $this->drinkCode = 'H';
+        $this->drink = new ChocolateDrink();
     }
 
     public function addSugar()
@@ -52,10 +52,10 @@ class CoffeeMachine
 
     protected function isThereEnoughMoney()
     {
-        if ($this->drinkCode == 'C') {
+        if ($this->isDrinkACoffee()) {
 
             return $this->amountMoney < self::COFFEE_PRIZE;
-        } elseif ($this->drinkCode == 'T') {
+        } elseif ($this->isDrinkATea()) {
 
             return $this->amountMoney < self::COFFEE_TEA;
         }
@@ -65,15 +65,25 @@ class CoffeeMachine
 
     protected function getMissingMoneyMessage()
     {
-        if ($this->drinkCode == 'C') {
+        if ($this->isDrinkACoffee()) {
             $missingMoney = self::COFFEE_PRIZE - $this->amountMoney;
-        } elseif ($this->drinkCode == 'T') {
+        } elseif ($this->isDrinkATea()) {
             $missingMoney = self::COFFEE_TEA - $this->amountMoney;
         } else {
             $missingMoney = self::COFFEE_CHOCOLATE - $this->amountMoney;
         }
 
         return 'M:Money missing: ' . $missingMoney;
+    }
+
+    protected function isDrinkACoffee()
+    {
+        return is_a($this->drink, 'CoffeeMachine\CoffeeDrink');
+    }
+
+    protected function isDrinkATea()
+    {
+        return is_a($this->drink, 'CoffeeMachine\TeaDrink');
     }
 
 }
