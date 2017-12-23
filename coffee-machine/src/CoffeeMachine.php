@@ -10,10 +10,14 @@ class CoffeeMachine
     protected $stickCode = '';
     protected $amountSugar = 0;
 
+    const COFFEE_PRIZE = 0.6;
+    const COFFEE_TEA = 0.4;
+    const COFFEE_CHOCOLATE = 0.5;
+
     public function getCommand()
     {
         if ($this->isThereEnoughMoney()) {
-            return $this->getMoneyMissingMessage();
+            return $this->getMissingMoneyMessage();
         }
 
         return $this->drinkCode . ':' . $this->sugarCode . ':' . $this->stickCode;
@@ -46,33 +50,27 @@ class CoffeeMachine
         $this->amountMoney = $amountMoney;
     }
 
-    /**
-     * @return bool
-     */
     protected function isThereEnoughMoney()
     {
         if ($this->drinkCode == 'C') {
 
-            return $this->amountMoney < 0.6;
+            return $this->amountMoney < self::COFFEE_PRIZE;
         } elseif ($this->drinkCode == 'T') {
 
-            return $this->amountMoney < 0.4;
+            return $this->amountMoney < self::COFFEE_TEA;
         }
 
-        return $this->amountMoney < 0.5;
+        return $this->amountMoney < self::COFFEE_CHOCOLATE;
     }
 
-    /**
-     * @return string
-     */
-    protected function getMoneyMissingMessage()
+    protected function getMissingMoneyMessage()
     {
         if ($this->drinkCode == 'C') {
-            $missingMoney = 0.6 - $this->amountMoney;
+            $missingMoney = self::COFFEE_PRIZE - $this->amountMoney;
         } elseif ($this->drinkCode == 'T') {
-            $missingMoney = 0.4 - $this->amountMoney;
+            $missingMoney = self::COFFEE_TEA - $this->amountMoney;
         } else {
-            $missingMoney = 0.5 - $this->amountMoney;
+            $missingMoney = self::COFFEE_CHOCOLATE - $this->amountMoney;
         }
 
         return 'M:Money missing: ' . $missingMoney;
