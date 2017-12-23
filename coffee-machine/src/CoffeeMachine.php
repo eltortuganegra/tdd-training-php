@@ -4,6 +4,7 @@ namespace CoffeeMachine;
 
 class CoffeeMachine
 {
+    protected $moneyMachine = null;
     protected $amountMoney = 0;
     protected $sugarCode = '';
     protected $stickCode = '';
@@ -14,9 +15,14 @@ class CoffeeMachine
     const COFFEE_TEA = 0.4;
     const COFFEE_CHOCOLATE = 0.5;
 
+    public function __construct()
+    {
+        $this->moneyMachine = new MoneyMachine();
+    }
+
     public function getCommand()
     {
-        if ($this->isThereEnoughMoney()) {
+        if ( ! $this->isThereEnoughMoney()) {
             return $this->getMissingMoneyMessage();
         }
 
@@ -47,20 +53,13 @@ class CoffeeMachine
 
     public function insertMoney($amountMoney)
     {
-        $this->amountMoney = $amountMoney;
+        $this->moneyMachine->insertMoney($amountMoney);
     }
 
     protected function isThereEnoughMoney()
     {
-        if ($this->isDrinkACoffee()) {
 
-            return $this->amountMoney < self::COFFEE_PRIZE;
-        } elseif ($this->isDrinkATea()) {
-
-            return $this->amountMoney < self::COFFEE_TEA;
-        }
-
-        return $this->amountMoney < self::COFFEE_CHOCOLATE;
+        return $this->moneyMachine->isThereEnoughMoney($this->drink);
     }
 
     protected function getMissingMoneyMessage()
