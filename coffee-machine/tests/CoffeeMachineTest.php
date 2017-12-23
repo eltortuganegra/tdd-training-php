@@ -89,8 +89,15 @@ class CoffeeMachineTest extends \PHPUnit_Framework_TestCase
 
         // Arrange
         $this->assertEquals('M:Money missing: 0.6', $command);
+
+        // Act
+        $insufficientAmountOfMoney = 0;
+        $coffeeMachine->insertMoney($insufficientAmountOfMoney);
+        $coffeeMachine->pressTeaButton();
+        $command = $coffeeMachine->getCommand();
+
+        // Arrange
+        $this->assertEquals('M:Money missing: 0.4', $command);
     }
-
-
 
 }

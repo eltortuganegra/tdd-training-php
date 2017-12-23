@@ -12,8 +12,8 @@ class CoffeeMachine
 
     public function getCommand()
     {
-        if ($this->amountMoney < 0.6) {
-            return 'M:Money missing: 0.6';
+        if ($this->isThereEnoughMoney()) {
+            return $this->getMoneyMissingMessage();
         }
 
         return $this->drinkCode . ':' . $this->sugarCode . ':' . $this->stickCode;
@@ -44,6 +44,38 @@ class CoffeeMachine
     public function insertMoney($amountMoney)
     {
         $this->amountMoney = $amountMoney;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isThereEnoughMoney()
+    {
+        if ($this->drinkCode == 'C') {
+
+            return $this->amountMoney < 0.6;
+        } elseif ($this->drinkCode == 'T') {
+
+            return $this->amountMoney < 0.4;
+        }
+
+        return $this->amountMoney < 0.5;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getMoneyMissingMessage()
+    {
+        if ($this->drinkCode == 'C') {
+            $missingMoney = 0.6 - $this->amountMoney;
+        } elseif ($this->drinkCode == 'T') {
+            $missingMoney = 0.4 - $this->amountMoney;
+        } else {
+            $missingMoney = 0.5 - $this->amountMoney;
+        }
+
+        return 'M:Money missing: ' . $missingMoney;
     }
 
 }
