@@ -17,10 +17,10 @@ class MoneyMachine
 
     public function isThereEnoughMoney(DrinkInterface $drink)
     {
-        if (is_a($drink, 'CoffeeMachine\CoffeeDrink')) {
+        if ($this->isDrinkACoffee($drink)) {
 
             return ($this->money >= self::COFFEE_PRICE);
-        } elseif (is_a($drink, 'CoffeeMachine\TeaDrink')) {
+        } elseif ($this->isDrinkATea($drink)) {
 
             return ($this->money >= self::TEA_PRICE);
         }
@@ -30,15 +30,25 @@ class MoneyMachine
 
     public function getMissingMoneyMessage($drink)
     {
-        if (is_a($drink, 'CoffeeMachine\CoffeeDrink')) {
+        if ($this->isDrinkACoffee($drink)) {
             $missingMoney = self::COFFEE_PRICE - $this->money;
-        } elseif (is_a($drink, 'CoffeeMachine\TeaDrink')) {
+        } elseif ($this->isDrinkATea($drink)) {
             $missingMoney = self::TEA_PRICE - $this->money;
         } else {
             $missingMoney = self::CHOCOLATE_PRICE - $this->money;
         }
 
         return 'M:Money missing: ' . $missingMoney;
+    }
+
+    protected function isDrinkACoffee(DrinkInterface $drink)
+    {
+        return is_a($drink, 'CoffeeMachine\CoffeeDrink');
+    }
+
+    protected function isDrinkATea(DrinkInterface $drink)
+    {
+        return is_a($drink, 'CoffeeMachine\TeaDrink');
     }
 
 }
