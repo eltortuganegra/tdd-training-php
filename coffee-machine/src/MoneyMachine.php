@@ -28,4 +28,17 @@ class MoneyMachine
         return ($this->money >= self::CHOCOLATE_PRICE);
     }
 
+    public function getMissingMoneyMessage($drink)
+    {
+        if (is_a($drink, 'CoffeeMachine\CoffeeDrink')) {
+            $missingMoney = self::COFFEE_PRICE - $this->money;
+        } elseif (is_a($drink, 'CoffeeMachine\TeaDrink')) {
+            $missingMoney = self::TEA_PRICE - $this->money;
+        } else {
+            $missingMoney = self::CHOCOLATE_PRICE - $this->money;
+        }
+
+        return 'M:Money missing: ' . $missingMoney;
+    }
+
 }

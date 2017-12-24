@@ -11,10 +11,6 @@ class CoffeeMachine
     protected $amountSugar = 0;
     protected $drink = null;
 
-    const COFFEE_PRIZE = 0.6;
-    const COFFEE_TEA = 0.4;
-    const COFFEE_CHOCOLATE = 0.5;
-
     public function __construct()
     {
         $this->moneyMachine = new MoneyMachine();
@@ -58,31 +54,12 @@ class CoffeeMachine
 
     protected function isThereEnoughMoney()
     {
-
         return $this->moneyMachine->isThereEnoughMoney($this->drink);
     }
 
     protected function getMissingMoneyMessage()
     {
-        if ($this->isDrinkACoffee()) {
-            $missingMoney = self::COFFEE_PRIZE - $this->amountMoney;
-        } elseif ($this->isDrinkATea()) {
-            $missingMoney = self::COFFEE_TEA - $this->amountMoney;
-        } else {
-            $missingMoney = self::COFFEE_CHOCOLATE - $this->amountMoney;
-        }
-
-        return 'M:Money missing: ' . $missingMoney;
-    }
-
-    protected function isDrinkACoffee()
-    {
-        return is_a($this->drink, 'CoffeeMachine\CoffeeDrink');
-    }
-
-    protected function isDrinkATea()
-    {
-        return is_a($this->drink, 'CoffeeMachine\TeaDrink');
+        return $this->moneyMachine->getMissingMoneyMessage($this->drink);
     }
 
 }

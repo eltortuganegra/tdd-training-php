@@ -29,6 +29,7 @@ class MoneyMachineTest extends \PHPUnit_Framework_TestCase
         // Arrange
         $this->assertFalse($isEnoughMoney);
     }
+
     /** @test */
     public function should_return_true_if_there_is_enough_money_for_a_drink() {
         // Arrange
@@ -51,6 +52,21 @@ class MoneyMachineTest extends \PHPUnit_Framework_TestCase
 
         // Arrange
         $this->assertTrue($isEnoughMoney);
+    }
+
+    /** @test */
+    public function should_return_missing_money_message() {
+        // Arrange
+        $moneyMachine = new MoneyMachine();
+        $coffeeDrink = new CoffeeDrink();
+        $zeroMoney = 0;
+
+        // Act
+        $moneyMachine->insertMoney($zeroMoney);
+        $message = $moneyMachine->getMissingMoneyMessage($coffeeDrink);
+
+        // Arrange
+        $this->assertEquals('M:Money missing: 0.6', $message);
     }
 
 }
