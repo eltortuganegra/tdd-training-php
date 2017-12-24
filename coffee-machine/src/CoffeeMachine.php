@@ -27,17 +27,17 @@ class CoffeeMachine
 
     public function pressCoffeeButton()
     {
-        $this->drink = new CoffeeDrink();
+        $this->drink = DrinkFactory::createCoffee();
     }
 
     public function pressTeaButton()
     {
-        $this->drink = new TeaDrink();
+        $this->drink = DrinkFactory::createTea();
     }
 
     public function pressChocolateButton()
     {
-        $this->drink = new ChocolateDrink();
+        $this->drink = DrinkFactory::createChocolate();
     }
 
     public function addSugar()
