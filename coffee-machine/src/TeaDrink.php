@@ -2,10 +2,10 @@
 
 namespace CoffeeMachine;
 
-class TeaDrink implements DrinkInterface
+class TeaDrink extends Drink
 {
-    public function getCode()
+    public function __construct()
     {
-        return 'T';
+        $this->code = 'T';
     }
 }

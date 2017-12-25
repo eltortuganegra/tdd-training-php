@@ -15,7 +15,7 @@ class MoneyMachine
         $this->money = $money;
     }
 
-    public function isThereEnoughMoney(DrinkInterface $drink)
+    public function isThereEnoughMoney(Drink $drink)
     {
         if ($this->isDrinkACoffee($drink)) {
 
@@ -41,12 +41,12 @@ class MoneyMachine
         return 'M:Money missing: ' . $missingMoney;
     }
 
-    protected function isDrinkACoffee(DrinkInterface $drink)
+    protected function isDrinkACoffee(Drink $drink)
     {
         return is_a($drink, 'CoffeeMachine\CoffeeDrink');
     }
 
-    protected function isDrinkATea(DrinkInterface $drink)
+    protected function isDrinkATea(Drink $drink)
     {
         return is_a($drink, 'CoffeeMachine\TeaDrink');
     }
