@@ -8,12 +8,12 @@ class CoffeeMachine
     protected $amountMoney = 0;
     protected $sugarCode = '';
     protected $stickCode = '';
-    protected $amountSugar = 0;
     protected $drink = null;
 
     public function __construct()
     {
         $this->moneyMachine = new MoneyMachine();
+        $this->drink = new Drink();
     }
 
     public function getCommand()
@@ -42,8 +42,8 @@ class CoffeeMachine
 
     public function addSugar()
     {
-        $this->amountSugar++;
-        $this->sugarCode = $this->amountSugar;
+        $this->drink->addSugar();
+        $this->sugarCode = $this->drink->getSugar();
         $this->stickCode = '0';
     }
 
