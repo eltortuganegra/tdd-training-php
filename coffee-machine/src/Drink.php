@@ -6,6 +6,7 @@ class Drink
 {
     protected $code = null;
     protected $sugar = 0;
+    protected $drinkType;
 
     public function getCode()
     {
@@ -20,5 +21,15 @@ class Drink
     public function getSugar()
     {
         return $this->sugar;
+    }
+
+    public function getDrinkType()
+    {
+        return $this->drinkType;
+    }
+
+    public function setDrinkType(DrinkType $drinkType)
+    {
+        $this->drinkType = $drinkType;
     }
 }

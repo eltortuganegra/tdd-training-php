@@ -43,12 +43,18 @@ class MoneyMachine
 
     protected function isDrinkACoffee(Drink $drink)
     {
-        return is_a($drink, 'CoffeeMachine\CoffeeDrink');
+        $drinkType = $drink->getDrinkType();
+
+        return $drinkType instanceof DrinkTypeCoffee;
+//        return is_a($drink, 'CoffeeMachine\CoffeeDrink');
     }
 
     protected function isDrinkATea(Drink $drink)
     {
-        return is_a($drink, 'CoffeeMachine\TeaDrink');
+        $drinkType = $drink->getDrinkType();
+
+        return $drinkType instanceof DrinkTypeTea;
+//        return is_a($drink, 'CoffeeMachine\TeaDrink');
     }
 
 }

@@ -3,6 +3,9 @@
 namespace CoffeeMachine\Tests;
 
 use CoffeeMachine\CoffeeDrink;
+use CoffeeMachine\Drink;
+use CoffeeMachine\DrinkTypeCoffee;
+use CoffeeMachine\DrinkTypeTea;
 use CoffeeMachine\MoneyMachine;
 use CoffeeMachine\TeaDrink;
 
@@ -12,8 +15,10 @@ class MoneyMachineTest extends \PHPUnit_Framework_TestCase
     public function should_return_false_if_there_is_not_enough_money_for_a_drink() {
         // Arrange
         $moneyMachine = new MoneyMachine();
-        $coffeeDrink = new CoffeeDrink();
-        $teaDrink = new TeaDrink();
+        $coffeeDrink = new Drink();
+        $coffeeDrink->setDrinkType(new DrinkTypeCoffee());
+        $teaDrink = new Drink();
+        $teaDrink->setDrinkType(new DrinkTypeTea());
         $notEnoughAmountOfMoney = 0;
 
         // Act
@@ -34,8 +39,10 @@ class MoneyMachineTest extends \PHPUnit_Framework_TestCase
     public function should_return_true_if_there_is_enough_money_for_a_drink() {
         // Arrange
         $moneyMachine = new MoneyMachine();
-        $coffeeDrink = new CoffeeDrink();
-        $teaDrink = new TeaDrink();
+        $coffeeDrink = new Drink();
+        $coffeeDrink->setDrinkType(new DrinkTypeCoffee());
+        $teaDrink = new Drink();
+        $teaDrink->setDrinkType(new DrinkTypeTea());
         $amountOfMoneyForCoffee = 0.6;
         $amountOfMoneyForTea = 0.4;
 
@@ -58,7 +65,8 @@ class MoneyMachineTest extends \PHPUnit_Framework_TestCase
     public function should_return_missing_money_message() {
         // Arrange
         $moneyMachine = new MoneyMachine();
-        $coffeeDrink = new CoffeeDrink();
+        $coffeeDrink = new Drink();
+        $coffeeDrink->setDrinkType(new DrinkTypeCoffee());
         $zeroMoney = 0;
 
         // Act

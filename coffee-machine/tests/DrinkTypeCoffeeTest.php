@@ -2,16 +2,17 @@
 namespace CoffeeMachine\Tests;
 
 use CoffeeMachine\CoffeeDrink;
+use CoffeeMachine\DrinkTypeCoffee;
 
-class CoffeeDrinkTest extends \PHPUnit_Framework_TestCase
+class DrinkTypeCoffeeTest extends \PHPUnit_Framework_TestCase
 {
     /** @test */
     public function should_return_code() {
         // Arrange
-        $coffeeDrink = new CoffeeDrink();
+        $drinkTypeCoffee = new DrinkTypeCoffee();
 
         // Act
-        $code = $coffeeDrink->getCode();
+        $code = $drinkTypeCoffee->getCode();
 
         // Arrange
         $this->assertEquals('C', $code);

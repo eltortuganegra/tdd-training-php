@@ -22,22 +22,28 @@ class CoffeeMachine
             return $this->getMissingMoneyMessage();
         }
 
-        return $this->drink->getCode() . ':' . $this->sugarCode . ':' . $this->stickCode;
+//        return $this->drink->getCode() . ':' . $this->sugarCode . ':' . $this->stickCode;
+        return $this->drink->getDrinkType()->getCode() . ':' . $this->sugarCode . ':' . $this->stickCode;
     }
 
     public function pressCoffeeButton()
     {
-        $this->drink = DrinkFactory::createCoffee();
+        $drinkTypeCoffee = new DrinkTypeCoffee();
+        $this->drink->setDrinkType($drinkTypeCoffee);
     }
 
     public function pressTeaButton()
     {
-        $this->drink = DrinkFactory::createTea();
+//        $this->drink = DrinkFactory::createTea();
+        $drinkTypeTea = new DrinkTypeTea();
+        $this->drink->setDrinkType($drinkTypeTea);
     }
 
     public function pressChocolateButton()
     {
-        $this->drink = DrinkFactory::createChocolate();
+//        $this->drink = DrinkFactory::createChocolate();
+        $drinkTypeChocolate = new DrinkTypeChocolate();
+        $this->drink->setDrinkType($drinkTypeChocolate);
     }
 
     public function addSugar()
